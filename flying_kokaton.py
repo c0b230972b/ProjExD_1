@@ -22,19 +22,19 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         
-        key_lst = pg.key.get_pressed() #練習問題8-3 key方向
-        kk_rct.move_ip((-1,0)) #演習問題1 
+        key_lst = pg.key.get_pressed() #練習問題8-3 key方向 
         
-        x1, y1 = 0, 0
+        x1, y1 = -1, 0#演習問題1
+        x2, y2 = 0, 0
         if key_lst[pg.K_UP]: #練習問題8-4 左右上下移動
-            x1, y1 = 0, -1 
+            x2, y2 = 0, -1 
         elif key_lst[pg.K_DOWN]:
-            x1, y1 = 0, 1
+            x2, y2 = 0, 1
         elif key_lst[pg.K_LEFT]:
-            x1, y1 = -1, 0
+            x2, y2 = -1, 0
         elif key_lst[pg.K_RIGHT]:
-            x1, y1 = 2, 0
-        kk_rct.move_ip((x1, y1)) #(横方向速度, 縦方向速度)
+            x2, y2 = 2, 0
+        kk_rct.move_ip((x1+x2, y1+y2)) #(横方向速度, 縦方向速度)
 
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])
