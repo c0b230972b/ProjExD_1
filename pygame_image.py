@@ -24,15 +24,17 @@ def main():
         
         key_lst = pg.key.get_pressed() #練習問題8-3 key方向
         kk_rct.move_ip((-1,0)) #演習問題1 
-
+        
+        x1, y1 = 0, 0
         if key_lst[pg.K_UP]: #練習問題8-4 左右上下移動
-            kk_rct.move_ip((0,-1)) #(横方向速度, 縦方向速度)
+            x1, y1 = 0, -1 
         elif key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0,1))
+            x1, y1 = 0, 1
         elif key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1,0))
+            x1, y1 = -1, 0
         elif key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((2,0))
+            x1, y1 = 2, 0
+        kk_rct.move_ip((x1, y1)) #(横方向速度, 縦方向速度)
 
         x = -(tmr%3200)
         screen.blit(bg_img, [x, 0])
